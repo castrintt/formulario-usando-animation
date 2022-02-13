@@ -1,0 +1,99 @@
+@mixin background {
+    height: 100vh;
+    background: linear-gradient(-45deg, purple, rgb(235, 67, 95),rgb(151, 100, 5), yellow);
+    background-repeat: no-repeat;
+    background-size: 300% 300%;
+    animation-name: fundo;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 0.5s;
+    @keyframes fundo {
+        to {
+            background-position: 0% 50%;
+        }
+        from {
+            background-position: 100% 50%;
+        }
+    }
+
+}
+
+@mixin botao {
+    background: linear-gradient(-45deg, purple, rgb(235, 67, 95),rgb(151, 100, 5), yellow);
+    background-repeat: no-repeat;
+    background-size: 200% 300%;
+    animation-name: deus;
+    animation-duration: 5s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-delay: 0.5s;
+    @keyframes deus {
+        to {
+            background-position: 0% 50%;
+        }
+        from {
+            background-position: 100% 50%;
+        }
+    }
+}
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+$font-global:'Lobster', cursive;
+
+
+
+body {
+    @include background;
+    font-family: $font-global;
+    color: white;
+    .main__container {  
+        background-color: rgba(255, 255, 255, 0.171);
+        height: calc(80vh - 30vh);
+        position: relative;
+        left: 37%;
+        top: 50%;
+        max-width: calc(100% - 30%);
+        transform: translate(-50%, -50%);
+        backdrop-filter: blur(20px);
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.658);
+        border-radius: 10px;
+        .main__contorno {
+           padding: 10px;
+           legend {
+               text-align: center;
+               font-size: 2rem;
+               border-bottom:1px solid white ;
+               margin-bottom: 30px;
+               padding-bottom: 5px;
+           }
+           .row__input {
+               vertical-align: middle;
+               .label__col{
+                   margin-top: 5px;
+               } 
+           }
+        }
+    
+    }
+    .btn {
+        transition: transform 2s ease;
+        margin-top: 35px;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0.384);
+
+    }
+    .btn:hover{
+        transform: scale(1.1);
+        
+        transition: color 1s ease;
+        @include botao;
+        color: rgb(100, 15, 100);
+        text-shadow: 5px 5px 10px rgba(212, 62, 87, 0.842);
+        
+    }
+    
+}
